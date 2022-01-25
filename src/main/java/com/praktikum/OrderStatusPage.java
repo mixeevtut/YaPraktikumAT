@@ -9,8 +9,8 @@ public class OrderStatusPage {
     public static final String URL = "https://qa-scooter.praktikum-services.ru/track";
 
     @FindBy(how = How.CLASS_NAME, using = "Input_InputContainer__3NykH")
-    private SelenideElement orderNumberField;
+    private SelenideElement orderNumberField; //локатор поля ввода номера заказа
 
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
-    private SelenideElement searchOrderButton;
+    private SelenideElement searchOrderButton; //локатор кнопки поиска заказа
 }
