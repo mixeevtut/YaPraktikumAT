@@ -13,4 +13,22 @@ public class OrderStatusPage {
 
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
     private SelenideElement searchOrderButton; //локатор кнопки поиска заказа
+
+    @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM Button_Inverted__3IF-i']")
+    private SelenideElement cancelOrderButton; //локатор кнопки отмены заказа
+
+    public OrderStatusPage fillOrderNumberField(String orderNumber) {
+        orderNumberField.sendKeys(orderNumber);
+        return this;
+    }
+
+    public OrderStatusPage clickSearchOrderButton() {
+        searchOrderButton.click();
+        return this;
+    }
+
+    public OrderStatusPage clickcancelOrderButton() {
+        cancelOrderButton.click();
+        return this;
+    }
 }
