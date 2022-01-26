@@ -25,6 +25,29 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']")
     private SelenideElement makeNewOrderBigButton; //локатор большой кнопки создания нового заказа
 
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-0']")
+    private SelenideElement firstImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-1']")
+    private SelenideElement secondImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-2']")
+    private SelenideElement thirdImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-3']")
+    private SelenideElement fourthImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-4']")
+    private SelenideElement fifthImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-5']")
+    private SelenideElement sixthImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-6']")
+    private SelenideElement seventhImportantQuestionElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-7']")
+    private SelenideElement eighthImportantQuestionElement;
 
     public MainPage clickOrderStatusButton() {
         orderStatusButton.click();
@@ -33,6 +56,46 @@ public class MainPage {
 
     public MainPage fillOrderNumberInput(String orderNumber) {
         orderNumberInput.sendKeys(orderNumber);
+        return this;
+    }
+
+    public MainPage clickFirstImportantQuestionElement() {
+        firstImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickSecondImportantQuestionElement() {
+        secondImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickThirdImportantQuestionElement() {
+        thirdImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickFourthImportantQuestionElement() {
+        fourthImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickFifthImportantQuestionElement() {
+        fifthImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickSixthImportantQuestionElement() {
+        sixthImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickSeventhImportantQuestionElement() {
+        seventhImportantQuestionElement.click();
+        return this;
+    }
+
+    public MainPage clickEighthImportantQuestionElement() {
+        eighthImportantQuestionElement.click();
         return this;
     }
 
