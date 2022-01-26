@@ -49,6 +49,31 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-7']")
     private SelenideElement eighthImportantQuestionElement;
 
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-0']")
+    private SelenideElement firstAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-1']")
+    private SelenideElement secondAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-2']")
+    private SelenideElement thirdAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-3']")
+    private SelenideElement fourthAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-4']")
+    private SelenideElement fifthAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-5']")
+    private SelenideElement sixthAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-6']")
+    private SelenideElement seventhAnswerElement;
+
+    @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__panel-7']")
+    private SelenideElement eighthAnswerElement;
+
+
     public MainPage clickOrderStatusButton() {
         orderStatusButton.click();
         return this;
@@ -97,6 +122,38 @@ public class MainPage {
     public MainPage clickEighthImportantQuestionElement() {
         eighthImportantQuestionElement.click();
         return this;
+    }
+
+    public String textFirstAnswerElement() {
+        return firstAnswerElement.getText();
+    }
+
+    public String textSecondAnswerElement() {
+        return secondAnswerElement.getText();
+    }
+
+    public String textThirdAnswerElement() {
+        return thirdAnswerElement.getText();
+    }
+
+    public String textFourthAnswerElement() {
+        return fourthAnswerElement.getText();
+    }
+
+    public String textFifthAnswerElement() {
+        return fifthAnswerElement.getText();
+    }
+
+    public String textSixthAnswerElement() {
+        return sixthAnswerElement.getText();
+    }
+
+    public String textSeventhAnswerElement() {
+        return seventhAnswerElement.getText();
+    }
+
+    public String textEighthAnswerElement() {
+        return eighthAnswerElement.getText();
     }
 
     public OrderStatusPage clickSearchOrderButton() {
