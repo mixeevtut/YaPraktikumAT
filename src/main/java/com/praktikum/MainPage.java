@@ -85,42 +85,42 @@ public class MainPage {
     }
 
     public MainPage clickFirstImportantQuestionElement() {
-        firstImportantQuestionElement.click();
+        firstImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickSecondImportantQuestionElement() {
-        secondImportantQuestionElement.click();
+        secondImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickThirdImportantQuestionElement() {
-        thirdImportantQuestionElement.click();
+        thirdImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickFourthImportantQuestionElement() {
-        fourthImportantQuestionElement.click();
+        fourthImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickFifthImportantQuestionElement() {
-        fifthImportantQuestionElement.click();
+        fifthImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickSixthImportantQuestionElement() {
-        sixthImportantQuestionElement.click();
+        sixthImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickSeventhImportantQuestionElement() {
-        seventhImportantQuestionElement.click();
+        seventhImportantQuestionElement.scrollTo().click();
         return this;
     }
 
     public MainPage clickEighthImportantQuestionElement() {
-        eighthImportantQuestionElement.click();
+        eighthImportantQuestionElement.scrollTo().click();
         return this;
     }
 
