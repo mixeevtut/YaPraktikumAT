@@ -1,9 +1,11 @@
 package com.praktikum;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import static com.codeborne.selenide.Selectors.withText;
 
 public class NewOrderPage {
 
@@ -30,8 +32,11 @@ public class NewOrderPage {
     @FindBy(how = How.XPATH, using = ".//input[@placeholder='* Когда привезти самокат']")
     private SelenideElement orderRentStartDate; //локатор поля даты начала аренды
 
-    @FindBy(how = How.CLASS_NAME, using = "Dropdown-root")
+    @FindBy(how = How.CSS, using = ".Dropdown-root")
     private SelenideElement orderRentDuration; //локатор списка с продолжительностью аренды в днях
+
+    @FindBy(how = How.XPATH, using = ".//div[@role='option']")
+    private SelenideElement orderRentDurationDropdown;
 
     @FindBy(how = How.ID, using = "black")
     private SelenideElement orderBlackColorCheckbox; //локатор чекбокса с черным цветом
@@ -65,7 +70,8 @@ public class NewOrderPage {
 
     public NewOrderPage selectOrderSubway(String Subway) {
         orderSubwayInput.sendKeys(Subway);
-        orderSubwayDropdown.scrollIntoView(false)
+        orderSubwayDropdown
+                .scrollIntoView(false)
                 .click();
         return this;
     }
@@ -82,6 +88,10 @@ public class NewOrderPage {
 
     public NewOrderPage selectRentDuration(String days) {
         orderRentDuration.click();
+        orderRentDurationDropdown
+                .shouldBe(Condition.visible)
+                .shouldHave(Condition.text(days))
+                .click();
         return this;
     }
 }

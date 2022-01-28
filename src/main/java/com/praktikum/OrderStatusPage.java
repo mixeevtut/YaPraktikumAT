@@ -27,7 +27,7 @@ public class OrderStatusPage {
         return this;
     }
 
-    public OrderStatusPage clickcancelOrderButton() {
+    public OrderStatusPage clickCancelOrderButton() {
         cancelOrderButton.click();
         return this;
     }

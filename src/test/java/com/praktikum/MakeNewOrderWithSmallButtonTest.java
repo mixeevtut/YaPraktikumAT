@@ -22,5 +22,6 @@ public class MakeNewOrderWithSmallButtonTest {
         NewOrderPage orderPage2 = Selenide.page(NewOrderPage.class);
         orderPage2.selectRentDuration("двое суток");
 
+
     }
 }
