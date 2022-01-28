@@ -1,6 +1,7 @@
 package com.praktikum;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -19,6 +20,9 @@ public class NewOrderPage {
 
     @FindBy(how = How.XPATH, using = ".//input[@placeholder='* Станция метро']")
     private SelenideElement orderSubwayInput; //локатор поля "Станция метро"
+
+    @FindBy(how = How.CLASS_NAME, using = "select-search__select")
+    private SelenideElement orderSubwayDropdown; //локатор выпадающего списка
 
     @FindBy(how = How.XPATH, using = ".//input[@placeholder='* Телефон: на него позвонит курьер']")
     private SelenideElement orderPhoneInput; //локатор поля "Телефон"
@@ -44,4 +48,40 @@ public class NewOrderPage {
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM Button_Inverted__3IF-i']")
     private SelenideElement orderBackButton; //локатор кнопки "Назад"
 
+    public NewOrderPage fillOrderName(String name) {
+        orderNameInput.sendKeys(name);
+        return this;
+    }
+
+    public NewOrderPage fillOrderSurname(String surname) {
+        orderSurnameInput.sendKeys(surname);
+        return this;
+    }
+
+    public NewOrderPage fillOrderAddress(String address) {
+        orderAddressInput.sendKeys(address);
+        return this;
+    }
+
+    public NewOrderPage selectOrderSubway(String Subway) {
+        orderSubwayInput.sendKeys(Subway);
+        orderSubwayDropdown.scrollIntoView(false)
+                .click();
+        return this;
+    }
+
+    public NewOrderPage fillOrderPhone(String number) {
+        orderPhoneInput.sendKeys(number);
+        return this;
+    }
+
+    public NewOrderPage clickNextButton() {
+        orderNextButton.click();
+        return this;
+    }
+
+    public NewOrderPage selectRentDuration(String days) {
+        orderRentDuration.click();
+        return this;
+    }
 }
