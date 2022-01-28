@@ -35,9 +35,6 @@ public class NewOrderPage {
     @FindBy(how = How.CSS, using = ".Dropdown-root")
     private SelenideElement orderRentDuration; //локатор списка с продолжительностью аренды в днях
 
-    @FindBy(how = How.XPATH, using = ".//div[@role='option']")
-    private SelenideElement orderRentDurationDropdown;
-
     @FindBy(how = How.ID, using = "black")
     private SelenideElement orderBlackColorCheckbox; //локатор чекбокса с черным цветом
 
@@ -86,11 +83,18 @@ public class NewOrderPage {
         return this;
     }
 
+    public NewOrderPage selectRentStartDate(String date) {
+        orderRentStartDate
+                .setValue(date)
+                .pressEnter();
+        return this;
+    }
+
     public NewOrderPage selectRentDuration(String days) {
         orderRentDuration.click();
-        orderRentDurationDropdown
+        orderRentDuration
                 .shouldBe(Condition.visible)
-                .shouldHave(Condition.text(days))
+                .should(Condition.matchText(days))
                 .click();
         return this;
     }

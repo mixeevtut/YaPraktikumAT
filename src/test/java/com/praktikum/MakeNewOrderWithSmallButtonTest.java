@@ -13,15 +13,16 @@ public class MakeNewOrderWithSmallButtonTest {
         MainPage mainPage = Selenide.open(MainPage.URL, MainPage.class);
         mainPage.clickMakeNewOrderButton();
         NewOrderPage orderPage1 = Selenide.page(NewOrderPage.class);
-        orderPage1.fillOrderName("Павел")
+        orderPage1
+                .fillOrderName("Павел")
                 .fillOrderSurname("Ковидов")
                 .fillOrderAddress("ул. Багратиона, д. 10")
                 .selectOrderSubway("Крас")
                 .fillOrderPhone("89111111111")
                 .clickNextButton();
         NewOrderPage orderPage2 = Selenide.page(NewOrderPage.class);
-        orderPage2.selectRentDuration("двое суток");
-
-
+        orderPage2
+                .selectRentStartDate("22.11.2001")
+                .selectRentDuration("двое суток");
     }
 }
