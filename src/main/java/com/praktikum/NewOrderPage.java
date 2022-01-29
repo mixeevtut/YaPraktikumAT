@@ -1,9 +1,12 @@
 package com.praktikum;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import java.util.Date;
 
 import static com.codeborne.selenide.Selectors.withText;
 
@@ -24,7 +27,7 @@ public class NewOrderPage {
     private SelenideElement orderSubwayInput; //локатор поля "Станция метро"
 
     @FindBy(how = How.CLASS_NAME, using = "select-search__select")
-    private SelenideElement orderSubwayDropdown; //локатор выпадающего списка
+    private SelenideElement orderSubwayDropdown; //локатор выпадающего списка станций метро
 
     @FindBy(how = How.XPATH, using = ".//input[@placeholder='* Телефон: на него позвонит курьер']")
     private SelenideElement orderPhoneInput; //локатор поля "Телефон"
@@ -94,8 +97,10 @@ public class NewOrderPage {
         orderRentDuration.click();
         orderRentDuration
                 .shouldBe(Condition.visible)
-                .should(Condition.matchText(days))
+                .find(withText(days))
                 .click();
         return this;
     }
+
+
 }

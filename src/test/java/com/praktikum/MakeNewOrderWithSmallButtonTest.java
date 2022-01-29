@@ -1,6 +1,7 @@
 package com.praktikum;
 
 import com.codeborne.selenide.Selenide;
+import org.junit.Assert;
 import org.junit.Test;
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -13,8 +14,7 @@ public class MakeNewOrderWithSmallButtonTest {
         MainPage mainPage = Selenide.open(MainPage.URL, MainPage.class);
         mainPage.clickMakeNewOrderButton();
         NewOrderPage orderPage1 = Selenide.page(NewOrderPage.class);
-        orderPage1
-                .fillOrderName("Павел")
+        orderPage1.fillOrderName("Павел")
                 .fillOrderSurname("Ковидов")
                 .fillOrderAddress("ул. Багратиона, д. 10")
                 .selectOrderSubway("Крас")
@@ -22,7 +22,8 @@ public class MakeNewOrderWithSmallButtonTest {
                 .clickNextButton();
         NewOrderPage orderPage2 = Selenide.page(NewOrderPage.class);
         orderPage2
-                .selectRentStartDate("22.11.2001")
-                .selectRentDuration("двое суток");
+                .selectRentStartDate("10.03.2022")
+                .selectRentDuration("сут");
+
     }
 }

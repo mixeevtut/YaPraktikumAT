@@ -1,9 +1,9 @@
 package com.praktikum;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
 import static com.codeborne.selenide.Selenide.page;
 
 public class MainPage {
@@ -85,75 +85,107 @@ public class MainPage {
     }
 
     public MainPage clickFirstImportantQuestionElement() {
-        firstImportantQuestionElement.scrollTo().click();
+        firstImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickSecondImportantQuestionElement() {
-        secondImportantQuestionElement.scrollTo().click();
+        secondImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickThirdImportantQuestionElement() {
-        thirdImportantQuestionElement.scrollTo().click();
+        thirdImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickFourthImportantQuestionElement() {
-        fourthImportantQuestionElement.scrollTo().click();
+        fourthImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickFifthImportantQuestionElement() {
-        fifthImportantQuestionElement.scrollTo().click();
+        fifthImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickSixthImportantQuestionElement() {
-        sixthImportantQuestionElement.scrollTo().click();
+        sixthImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickSeventhImportantQuestionElement() {
-        seventhImportantQuestionElement.scrollTo().click();
+        seventhImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public MainPage clickEighthImportantQuestionElement() {
-        eighthImportantQuestionElement.scrollTo().click();
+        eighthImportantQuestionElement
+                .scrollTo()
+                .click();
         return this;
     }
 
     public String textFirstAnswerElement() {
-        return firstAnswerElement.getText();
+        return firstAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textSecondAnswerElement() {
-        return secondAnswerElement.getText();
+        return secondAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textThirdAnswerElement() {
-        return thirdAnswerElement.getText();
+        return thirdAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textFourthAnswerElement() {
-        return fourthAnswerElement.getText();
+        return fourthAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textFifthAnswerElement() {
-        return fifthAnswerElement.getText();
+        return fifthAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textSixthAnswerElement() {
-        return sixthAnswerElement.getText();
+        return sixthAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textSeventhAnswerElement() {
-        return seventhAnswerElement.getText();
+        return seventhAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public String textEighthAnswerElement() {
-        return eighthAnswerElement.getText();
+        return eighthAnswerElement
+                .shouldBe(Condition.visible)
+                .getText();
     }
 
     public OrderStatusPage clickSearchOrderButton() {
