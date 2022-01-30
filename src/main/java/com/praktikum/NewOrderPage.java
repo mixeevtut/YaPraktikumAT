@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.util.Date;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selectors.withText;
 
@@ -71,7 +72,8 @@ public class NewOrderPage {
     public NewOrderPage selectOrderSubway(String Subway) {
         orderSubwayInput.sendKeys(Subway);
         orderSubwayDropdown
-                .scrollIntoView(false)
+                .shouldBe(Condition.visible)
+                .find(withText(Subway))
                 .click();
         return this;
     }
@@ -102,5 +104,22 @@ public class NewOrderPage {
         return this;
     }
 
+    public NewOrderPage selectColorCheckbox(String color) {
+        if (Objects.equals(color, "чёрный жемчуг")) {
+            orderBlackColorCheckbox
+                    .shouldBe(Condition.visible)
+                    .click();
+        } else if (Objects.equals(color, "серая безысходность")) {
+            orderGreyColorCheckbox
+                    .shouldBe(Condition.visible)
+                    .click();
+        } else throw new RuntimeException("Не найден валидный цвет");
 
+        return this;
+    }
+
+    public NewOrderPage fillDeliveryComment(String comment) {
+        orderDeliveryComment.sendKeys(comment);
+        return this;
+    }
 }

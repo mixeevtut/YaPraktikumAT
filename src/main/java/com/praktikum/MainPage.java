@@ -19,10 +19,13 @@ public class MainPage {
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Header_Button__28dPO']")
     private SelenideElement searchOrderButton; //локатор кнопки поиска заказа
 
+    @FindBy(how = How.CLASS_NAME, using = "App_CookieButton__3cvqF")
+    private SelenideElement acceptCookieButton; //локатор кнопки куки
+
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g']")
     private SelenideElement makeNewOrderButton; //локатор кнопки создания нового заказа
 
-    @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']")
+    @FindBy(how = How.CSS, using = ".Home_FinishButton__1_cWm")
     private SelenideElement makeNewOrderBigButton; //локатор большой кнопки создания нового заказа
 
     @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-0']")
@@ -193,13 +196,23 @@ public class MainPage {
         return page(OrderStatusPage.class);
     }
 
+    public MainPage clickAcceptCookiesButton() {
+        acceptCookieButton
+                .shouldBe(Condition.visible)
+                .click();
+        return this;
+    }
+
     public NewOrderPage clickMakeNewOrderButton() {
         makeNewOrderButton.click();
         return page(NewOrderPage.class);
     }
 
     public NewOrderPage clickMakeNewOrderBigButton() {
-        makeNewOrderBigButton.click();
+        makeNewOrderBigButton
+                .scrollIntoView(true)
+                .shouldBe(Condition.visible)
+                .click();
         return page(NewOrderPage.class);
     }
 }
