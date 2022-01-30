@@ -1,14 +1,10 @@
 package com.praktikum;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
-import java.util.Date;
 import java.util.Objects;
-
 import static com.codeborne.selenide.Selectors.withText;
 
 public class NewOrderPage {
@@ -53,6 +49,12 @@ public class NewOrderPage {
 
     @FindBy(how = How.XPATH, using = ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM Button_Inverted__3IF-i']")
     private SelenideElement orderBackButton; //локатор кнопки "Назад"
+
+    @FindBy(how = How.XPATH, using = ".//button[text()='Да']")
+    private SelenideElement confirmOrderButton; //локатор кнопки подтверждения заказа
+
+    @FindBy(how = How.XPATH, using = ".//button[text()='Посмотреть статус']")
+    private SelenideElement checkOrderStatus; //локатор кнопки статуса заказа
 
     public NewOrderPage fillOrderName(String name) {
         orderNameInput.sendKeys(name);
@@ -121,5 +123,19 @@ public class NewOrderPage {
     public NewOrderPage fillDeliveryComment(String comment) {
         orderDeliveryComment.sendKeys(comment);
         return this;
+    }
+
+    public NewOrderPage clickConfirmOrderButton() {
+        confirmOrderButton
+                .shouldBe(Condition.visible)
+                .click();
+        return this;
+    }
+
+    public String buttonTextCheckOrderStatus (String buttonText) {
+        return checkOrderStatus
+                .shouldBe(Condition.visible)
+                .shouldHave(Condition.text(buttonText))
+                .getText();
     }
 }

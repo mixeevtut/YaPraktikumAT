@@ -29,7 +29,7 @@ public class MainPage {
     private SelenideElement makeNewOrderBigButton; //локатор большой кнопки создания нового заказа
 
     @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-0']")
-    private SelenideElement firstImportantQuestionElement;
+    private SelenideElement firstImportantQuestionElement; // здесь и ниже локаторы элементов списка "Вопросы о важном"
 
     @FindBy(how = How.XPATH, using = ".//div[@id ='accordion__heading-1']")
     private SelenideElement secondImportantQuestionElement;
@@ -197,9 +197,11 @@ public class MainPage {
     }
 
     public MainPage clickAcceptCookiesButton() {
-        acceptCookieButton
-                .shouldBe(Condition.visible)
-                .click();
+        if (acceptCookieButton.exists()) {
+            acceptCookieButton
+                    .shouldBe(Condition.visible)
+                    .click();
+        }
         return this;
     }
 

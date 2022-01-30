@@ -1,9 +1,8 @@
 package com.praktikum;
 
 import com.codeborne.selenide.Selenide;
+import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class MakeNewOrderWithDifferentButtonsTest {
 
@@ -11,7 +10,8 @@ public class MakeNewOrderWithDifferentButtonsTest {
 
     public void makeNewOrderWithSmallButtonScenario() {
 
-        System.setProperty("selenide.browser", "edge");
+        System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\yandexdriver.exe");
+//        System.setProperty("selenide.browser", "edge");
 
         MainPage mainPage = Selenide.open(MainPage.URL, MainPage.class);
         mainPage
@@ -30,12 +30,19 @@ public class MakeNewOrderWithDifferentButtonsTest {
                 .selectRentDuration("сут")
                 .selectColorCheckbox("серая безысходность")
                 .fillDeliveryComment("Привезите нежно")
-                .clickNextButton();
+                .clickNextButton()
+                .clickConfirmOrderButton();
+
+        String orderWasMadeSuccessfully = "Посмотреть статус";
+        Assert.assertEquals(orderWasMadeSuccessfully, orderPage2.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
     }
 
     @Test
 
     public void makeNewOrderWithBigButtonScenario() {
+
+        System.setProperty("webdriver.chrome.driver", "C:\\WebDrivers\\yandexdriver.exe");
+//        System.setProperty("selenide.browser", "edge");
 
         MainPage mainPage = Selenide.open(MainPage.URL, MainPage.class);
         mainPage
@@ -53,6 +60,10 @@ public class MakeNewOrderWithDifferentButtonsTest {
                 .selectRentDuration("четверо суток")
                 .selectColorCheckbox("чёрный жемчуг")
                 .fillDeliveryComment("Быстрее, ну")
-                .clickNextButton();
+                .clickNextButton()
+                .clickConfirmOrderButton();
+
+        String orderWasMadeSuccessfully = "Посмотреть статус";
+        Assert.assertEquals(orderWasMadeSuccessfully, orderPage2.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
     }
 }
