@@ -4,7 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 import java.util.Objects;
+
 import static com.codeborne.selenide.Selectors.withText;
 
 public class NewOrderPage {
@@ -116,7 +118,6 @@ public class NewOrderPage {
                     .shouldBe(Condition.visible)
                     .click();
         } else throw new RuntimeException("Не найден валидный цвет");
-
         return this;
     }
 
@@ -132,7 +133,7 @@ public class NewOrderPage {
         return this;
     }
 
-    public String buttonTextCheckOrderStatus (String buttonText) {
+    public String buttonTextCheckOrderStatus(String buttonText) {
         return checkOrderStatus
                 .shouldBe(Condition.visible)
                 .shouldHave(Condition.text(buttonText))
