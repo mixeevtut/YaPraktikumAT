@@ -37,7 +37,7 @@ public class MakeNewOrderWithDifferentButtonsTest {
                 .clickConfirmOrderButton();
 
         String orderWasMadeSuccessfully = "Посмотреть статус";
-        Assert.assertEquals(orderWasMadeSuccessfully, orderPage.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
+        Assert.assertEquals("Кнопка статуса заказа недоступна!", orderWasMadeSuccessfully, orderPage.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
     }
 
     @Test
@@ -61,6 +61,6 @@ public class MakeNewOrderWithDifferentButtonsTest {
                 .clickConfirmOrderButton();
 
         String orderWasMadeSuccessfully = "Посмотреть статус";
-        Assert.assertEquals(orderWasMadeSuccessfully, orderPage.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
+        Assert.assertEquals("Кнопка статуса заказа недоступна!", orderWasMadeSuccessfully, orderPage.buttonTextCheckOrderStatus(orderWasMadeSuccessfully));
     }
 }
